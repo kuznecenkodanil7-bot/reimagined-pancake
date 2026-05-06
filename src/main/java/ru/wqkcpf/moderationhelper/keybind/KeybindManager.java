@@ -6,11 +6,17 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
+import ru.wqkcpf.moderationhelper.ModerationHelperClient;
 import ru.wqkcpf.moderationhelper.gui.StatsScreen;
 import ru.wqkcpf.moderationhelper.obs.ObsController;
 
 public final class KeybindManager {
+    private static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(
+            Identifier.of(ModerationHelperClient.MOD_ID, "main")
+    );
+
     private static KeyBinding openStats;
     private static KeyBinding stopObs;
 
@@ -21,14 +27,14 @@ public final class KeybindManager {
                 "key.moderation-helper-gui.open_stats",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_H,
-                "category.moderation-helper-gui"
+                CATEGORY
         ));
 
         stopObs = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.moderation-helper-gui.stop_obs",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_G,
-                "category.moderation-helper-gui"
+                CATEGORY
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

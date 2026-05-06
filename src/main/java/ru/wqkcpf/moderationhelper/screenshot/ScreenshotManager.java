@@ -52,7 +52,7 @@ public final class ScreenshotManager {
             Path expected = client.runDirectory.toPath().resolve(relativeFile).normalize();
 
             // Must be called before opening the GUI; this method is invoked directly from the chat click mixin.
-            ScreenshotRecorder.saveScreenshot(client.runDirectory, relativeFile, client.getFramebuffer(), text -> {
+            ScreenshotRecorder.saveScreenshot(client.runDirectory, relativeFile, client.getFramebuffer(), 1, text -> {
                 if (client.player != null) {
                     client.player.sendMessage(Text.literal("§7[Moderation Helper] Скрин сохранён во временную папку."), false);
                 }
