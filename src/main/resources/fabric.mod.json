@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "moderation-helper-gui",
+  "version": "${version}",
+  "name": "Moderation Helper GUI",
+  "description": "Client-side Fabric moderation helper with punishment GUI, screenshots, recent players and OBS websocket integration.",
+  "authors": ["Wqkcpf", "ChatGPT"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/moderation-helper-gui/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "ru.wqkcpf.moderationhelper.ModerationHelperClient"
+    ]
+  },
+  "mixins": [
+    "moderation-helper-gui.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
